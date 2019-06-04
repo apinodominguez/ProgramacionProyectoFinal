@@ -469,7 +469,7 @@ public class InicioA extends javax.swing.JFrame {
         Object selected1 = comboAcciones.getSelectedItem(); //obtener opcion escogida
         
         switch(selected1.toString()){
-            case "Ninguna":
+            case "Ninguno":
                  limpiarTexto();
                 textoI.setEnabled(false);
                 textoT.setEnabled(false);

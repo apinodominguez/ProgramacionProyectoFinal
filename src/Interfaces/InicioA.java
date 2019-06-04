@@ -668,13 +668,21 @@ public class InicioA extends javax.swing.JFrame {
                     objM.setVisible(true);
                 }
                 else if(!textoD.getText().isEmpty()){
+                    if("S".equals(textoD.getText()) || textoD.getText() == "N"){
                     aux = objL.existeDisponible(textoD.getText());
                     if(!"0".equals(aux)){
                      limpiarTabla();
                      selectDisponible(textoD.getText());
                     }
+                    else{
                     objM.setMensaje("No existe el libro");
                     objM.setVisible(true);
+                    }
+                    }
+                    else{
+                     objM.setMensaje("Para disponible solamente existen los valores S y N");
+                    objM.setVisible(true);   
+                    }
                 }
                 else if(!textoU.getText().isEmpty()){
                      valor = objL.existeUsuario(textoU.getText());
@@ -706,7 +714,14 @@ public class InicioA extends javax.swing.JFrame {
                 break;
             case "Borrar" :
                 if (!textoI.getText().isEmpty()){
+                    valor = objL.existeIsbn(Integer.parseInt(textoI.getText()));
+                    if(valor != 0){
                     objL.borrarLibros(Integer.parseInt(textoI.getText()));
+                    }
+                    else{
+                    objM.setMensaje("No existe el libro");
+                    objM.setVisible(true);  
+                    }
                 }
                 else {
                    objM.setVisible(true);
@@ -715,6 +730,8 @@ public class InicioA extends javax.swing.JFrame {
                 break;
             case "Modificar" :
                 if (!textoI.getText().isEmpty()){
+                    valor = objL.existeIsbn(Integer.parseInt(textoI.getText()));
+                    if(valor != 0){
                     if (!textoT.getText().isEmpty()){
                         objL.modificarTitulo(textoT.getText(), Integer.parseInt(textoI.getText()));
                     }
@@ -726,6 +743,11 @@ public class InicioA extends javax.swing.JFrame {
                     }
                     else if (!textoU.getText().isEmpty()){
                         objL.modificarUsuario(textoU.getText(), Integer.parseInt(textoI.getText()));
+                    }
+                    }
+                    else{
+                    objM.setMensaje("No existe el libro");
+                    objM.setVisible(true);  
                     }
                 }
                 else{

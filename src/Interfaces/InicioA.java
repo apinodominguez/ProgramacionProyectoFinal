@@ -534,6 +534,7 @@ public class InicioA extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_comboAccionesActionPerformed
 
+    //
     private void comboParametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboParametrosActionPerformed
        JComboBox comboParametros = (JComboBox) evt.getSource(); //obtener accion realizada
         Object selected1 = comboParametros.getSelectedItem(); //obtener opcion escogida

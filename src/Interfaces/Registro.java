@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinal;
+package Interfaces;
+
+import Interfaces.Mensaje;
+import Interfaces.InicioU;
+import Interfaces.InicioA;
+import Metodos.MetodosUsuario;
 
 /**
  *
@@ -11,15 +16,32 @@ package proyectofinal;
  */
 public class Registro extends javax.swing.JFrame {
 
-    Metodos objM = new Metodos();
+   
+
+    String nombreUser = "0";
+    
+    
+    
+    MetodosUsuario objM = new MetodosUsuario();
     InicioU objU = new InicioU();
     InicioA objA = new InicioA();
     Mensaje objMen = new Mensaje();
+    
+    
+    
     
     public Registro() {
         initComponents();
     }
 
+     public String getNombreU() {
+        return nombreUser;
+    }
+
+    public void setNombreU(String nombreUser) {
+        this.nombreUser = nombreUser;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,7 +166,9 @@ public class Registro extends javax.swing.JFrame {
                 if("A".equals(tipoU)){
                     objA.setVisible(true);
                     setVisible(false);
-                }    
+                }
+                setNombreU(nombreU);
+                objU.setVariables(nombreU, contraseña);
             }    
             else{
                 objMen.setVisible(true);
